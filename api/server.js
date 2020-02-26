@@ -1,11 +1,14 @@
 const express = require('express');
-const server = express();
+const helmet = require('helmet');
+const cors = require('cors');
+const session = require('express-session');
+const KnexStore = require('connect-session-knex')(session);
+const knex = require('../database/dbConfig');
 
 const apiRouter = require('./api-router');
-const configMiddleware = require('./configure-middleware');
-const session = require('express-session');
-const KnexStore = require('connect-session-knex');
-const knex = require('../database/dbConfig');
+
+const server = express();
+
 const sessionConfig = {
 	name: 'bloodstones', //sid
 	secret: 'keep it secret, keep it safe!',
@@ -24,7 +27,9 @@ const sessionConfig = {
 		clearInterval: 1000 * 60 * 15
 	})
 };
-configMiddleware(server);
+server.use(helmet());
+server.use(express.json());
+server.use(cors());
 server.use(session(sessionConfig));
 server.use('/api', apiRouter);
 

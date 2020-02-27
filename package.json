@@ -1,0 +1,32 @@
+{
+	"name": "auth1-project",
+	"version": "1.0.0",
+	"description": "Practicing authorization",
+	"main": "index.js",
+	"scripts": {
+		"test": "test",
+		"server": "nodemon index.js",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/prudentj/node-auth1-project.git"
+	},
+	"author": "Prudentj",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/prudentj/node-auth1-project/issues"
+	},
+	"homepage": "https://github.com/prudentj/node-auth1-project#readme",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"connect-session-knex": "^1.5.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"express-session": "^1.17.0",
+		"helmet": "^3.21.3",
+		"knex": "^0.20.10",
+		"nodemon": "^2.0.2",
+		"sqlite3": "^4.1.1"
+	}
+}
